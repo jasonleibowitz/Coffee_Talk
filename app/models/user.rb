@@ -8,4 +8,10 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates :zipcode, length: { is: 5 }, numericality: true
   validates :email, uniqueness: true
+
+  def age
+    now = Time.now.utc.to_date
+    now.year - self.dob.year - (self.dob.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
+
 end
