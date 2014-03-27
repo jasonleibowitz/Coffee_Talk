@@ -32,6 +32,15 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# HTTParty Gem for APIs
+gem 'httparty'
+
+# Pry Rails for Development Testing
+gem 'pry-rails', :group => :development
+
+# User Auth
+gem 'bcrypt', '~> 3.1.7'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
