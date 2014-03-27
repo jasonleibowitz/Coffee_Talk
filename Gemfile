@@ -38,11 +38,13 @@ gem 'httparty'
 # Pry Rails for Development Testing
 gem 'pry-rails', :group => :development
 
-# User Auth
+# Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# RSpec Testing in Rails
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'
