@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+    @user.update(edit_user_params)
     if @user.valid?
       @user.save
       redirect_to @user
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    if current_user == @user
+    if current_user
       @user.destroy
       redirect_to root_path
     else
@@ -54,6 +54,10 @@ class UsersController < ApplicationController
   private
   def user_params
     return params.require(:user).permit(:first_name, :last_name, :email, :dob, :zipcode, :password, :password_confirmation, :admin)
+  end
+
+  def edit_user_params
+    return params.require(:user).permit(:first_name, :last_name, :email, :dob, :zipcode, :admin)
   end
 
 end

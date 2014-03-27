@@ -1,2 +1,3 @@
 <h1>Edit Your Account</h1>
 <%= render "form" %>
+<%= link_to 'delete account', user_path, method: 'delete', data: { confirm: 'Are you sure?' } %>

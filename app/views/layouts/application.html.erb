@@ -7,6 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="top-menu"><% if current_user  %>
+    Hello, <%= current_user.first_name %>! <br>
+    <%= link_to "Logout", logout_path %>
+    <%= link_to "edit", edit_user_path(current_user.id), controller: 'users' %>
+   <% if current_user.admin %>
+    <%= link_to "Users", users_path %>
+   <% end %>
+  <% else %>
+    <%= link_to "Login", login_path %> <%= link_to "Sign Up", new_user_path, controller: 'users' %><br>
+  <% end %>
+</div>
 
 <%= yield %>
 

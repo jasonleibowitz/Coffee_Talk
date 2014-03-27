@@ -34,6 +34,7 @@
     <%= f.date_field :dob %>
   </div>
 
+  <% if params[:action] != "edit" %>
   <div>
     <%= f.label :password %>
     <%= f.password_field :password %>
@@ -43,6 +44,7 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </div>
+  <% end %>
 
   <% if !( current_user == nil || current_user.admin? == false ) %>
     <div>
