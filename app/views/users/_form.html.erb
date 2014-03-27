@@ -1,0 +1,58 @@
+<%= form_for @user do |f| %>
+
+  <% if @user.errors.any? %>
+    Please correct the following errors:
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :zipcode %>
+    <%= f.number_field :zipcode %>
+  </div>
+
+  <div>
+    <%= f.label :dob %>
+    <%= f.date_field :dob %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <% if !( current_user == nil || current_user.admin? == false ) %>
+    <div>
+      <%= f.label :admin %>
+      <%= f.check_box :admin %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     if @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to @user
+      # render text: params.inspect
     else
       render 'new'
     end
