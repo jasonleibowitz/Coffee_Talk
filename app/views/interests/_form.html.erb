@@ -1,0 +1,26 @@
+<%= form_for @interest do |f| %>
+
+  <% if @interest.errors.any? %>
+  Please correct the following errors:
+  <ul>
+    <% @interest.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

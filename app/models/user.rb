@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  validates :first_name, :last_name, :email, :dob, :zipcode, :password, presence: true
-  validates :password, confirmation: true
+  validates :first_name, :last_name, :email, :dob, :zipcode, :profile_pic, presence: true
+  validates :password, presence: true, on: :create
+  validates :password, confirmation: true, on: :create
   validates :zipcode, length: { is: 5 }, numericality: true
   validates :email, uniqueness: true
 

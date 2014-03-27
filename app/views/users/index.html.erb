@@ -1,0 +1,13 @@
+<h1>All Users</h1>
+<% @users.each do |user| %>
+  <table>
+  <tr>
+    <td>
+      <a href="users/<%= user.id %>"><img class="profile" src="<%= user.profile_pic %>"></a>
+    </td>
+    <td>
+      <%= link_to "#{user.first_name} #{user.last_name}", user %> - <%= user.email %> (<%= user.age %>)
+    </td>
+  </tr>
+  </table>
+<% end %>

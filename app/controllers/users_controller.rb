@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    if current_user
+    if current_user == @user
       @user.destroy
       redirect_to root_path
     else
@@ -53,11 +53,11 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    return params.require(:user).permit(:first_name, :last_name, :email, :dob, :zipcode, :password, :password_confirmation, :admin)
+    return params.require(:user).permit(:first_name, :last_name, :email, :dob, :zipcode, :password, :password_confirmation, :admin, :profile_pic)
   end
 
   def edit_user_params
-    return params.require(:user).permit(:first_name, :last_name, :email, :dob, :zipcode, :admin)
+    return params.require(:user).permit(:first_name, :last_name, :email, :dob, :zipcode, :admin, :profile_pic)
   end
 
 end
