@@ -16,6 +16,14 @@ It could use foursquare API to recommend a coffeeshop you haven't been to before
 
 After the meeting users "review" who they met: did they show up, were they obnoxious, etc. sufficient bad reviews and you're banned from the site. 
 
-### ERD
+---
+
+### Entity Relationship Diagram (ERD)
 
 ![ERD](/images/Coffee_Talk_ERD.png)
+
+--- 
+
+### Pivotal Tracker - User Stories
+
+[View](https://www.pivotaltracker.com/s/projects/1046526) the current status of my project and the timeline for each feature's completion.
