@@ -20,7 +20,7 @@ After the meeting users "review" who they met: did they show up, were they obnox
 
 ### Entity Relationship Diagram (ERD)
 
-![ERD](/images/Coffee_Talk_ERD.png)
+![ERD](/images/Coffee_Talk_ERD_v2.png)
 
 --- 
 
