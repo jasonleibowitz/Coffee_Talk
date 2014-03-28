@@ -1,7 +1,12 @@
 CoffeetalkApp::Application.routes.draw do
 
   resources :users
-  resources :interests
+  resources :interests do
+    collection do
+      get 'select'
+      post 'save_prefs'
+    end
+  end
   resources :locations
   resources :meetings
 

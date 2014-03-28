@@ -1,6 +1,6 @@
 class InterestsController < ApplicationController
 
-  before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_authentication, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @interests = Interest.all
@@ -38,6 +38,24 @@ class InterestsController < ApplicationController
     @interest = Interest.find(params[:id])
     @interest.destroy
     redirect_to interests_path
+  end
+
+  def select
+    @interests = Interest.all
+  end
+
+  def save_prefs
+    array = []
+    updated_prefs = params
+    updated_prefs.each do |k,v|
+      Interest.all.each do |interest|
+        if k == interest.name
+          array << k
+        end
+      end
+    end
+      current_user.update_interests(array)
+      redirect_to user_path(current_user)
   end
 
   private

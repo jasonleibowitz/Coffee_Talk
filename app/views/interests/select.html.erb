@@ -1,0 +1,11 @@
+<h1>Update Your Profile By Selecting Your Interests</h1>
+
+<%= form_tag save_prefs_interests_path do %>
+
+  <% @interests.each do |interest| %>
+    <%= check_box_tag interest.name, 1, if current_user.interests.include?(interest) then true else false end %>
+    <%= label_tag interest.name %>
+  <% end %>
+  <%= submit_tag %>
+
+<% end %>

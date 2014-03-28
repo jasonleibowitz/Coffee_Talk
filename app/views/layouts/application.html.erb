@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CoffeetalkApp</title>
+  <title>Coffee Talk</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <img class="logo" src="http://i.imgur.com/XWnbmbg.png" width="200">
   <div class="top-menu"><% if current_user  %>
     Hello, <%= current_user.first_name %>! <br>
     <%= link_to "Logout", logout_path %>
@@ -18,6 +19,8 @@
     <%= link_to "Login", login_path %> <%= link_to "Sign Up", new_user_path, controller: 'users' %><br>
   <% end %>
 </div>
+
+<hr>
 
 <%= yield %>
 

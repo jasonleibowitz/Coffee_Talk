@@ -3,4 +3,5 @@ class Interest < ActiveRecord::Base
 
   validates :name, :description, presence: true
 
+
 end

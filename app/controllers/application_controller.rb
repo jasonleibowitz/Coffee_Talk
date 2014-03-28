@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :authenticate
-  def authenticate
+  def require_authentication
     if current_user == nil
       redirect_to root_path
     elsif current_user.admin
