@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :require_authentication, only: [:index]
+
   def index
     @users = User.all
   end
