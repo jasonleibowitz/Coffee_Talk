@@ -9,6 +9,7 @@ CoffeetalkApp::Application.routes.draw do
   end
   resources :locations
   resources :meetings
+  resources :requests
 
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'
