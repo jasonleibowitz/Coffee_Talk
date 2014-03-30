@@ -1,3 +1,3 @@
 class Location < ActiveRecord::Base
-  belongs_to(:meeting)
+  has_many :meetings
 end

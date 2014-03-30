@@ -3,11 +3,18 @@
 <p>Email: <%= @user.email %></p>
 <p>Zipcode: <%= @user.zipcode %></p>
 <p>Age: <%= @user.age %></p>
+<h4>Current Interests:</h4>
 <% @user.interests.each do |interest| %>
   <ul>
     <li><%= interest.name %></li>
   </ul>
 <% end %>
+<h4>Current Meetup Requests:</h4>
+<% @user.requests.each do |request| %>
+  <ul>
+    <li><%= request.date.strftime("%b %d, %Y") %> at <%= request.time.strftime "%l%P" %> - <%= link_to request.confirmed == true ? "Confirmed" : "Pending" , request %> </li>
+  </ul>
+<% end %>
 <%= link_to 'edit account', edit_user_path(@user) %>
 <%= link_to 'update interests', select_interests_path %>
-<p>request meetup</p>
+<%= link_to 'request meetup', new_request_path %>
