@@ -6,6 +6,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
+    @meeting = Meeting.find(@request.meeting_id)
   end
 
   def new

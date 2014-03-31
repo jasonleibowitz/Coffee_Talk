@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :interests
-  has_and_belongs_to_many :meetings
+  # has_and_belongs_to_many :meetings
   has_many :requests
+  has_many :meetings, through: :requests
 
   has_secure_password
 
