@@ -15,14 +15,20 @@
   border: 2px solid red;
 }
 img.profile {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  clip: rect(0px, 0px, 0px, 0px);
   display: block;
-  border-radius: 50%;
+  width: 100px;
+  margin: 0 auto;
 }
 img.logo {
   display: block;
   margin: 0 auto;
+}
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 10px;
 }

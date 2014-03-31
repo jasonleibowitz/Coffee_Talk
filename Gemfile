@@ -46,9 +46,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
 end
 
-gem 'geocoder'
-
 gem 'area'
+
+gem 'time_diff'
 
 # Use unicorn as the app server
 # gem 'unicorn'

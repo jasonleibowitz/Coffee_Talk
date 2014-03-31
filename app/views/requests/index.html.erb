@@ -1,0 +1,18 @@
+<h1>All Coffee Talk Meetup Requests</h1>
+<h4>Pending:</h4>
+<% @requests.each do |request| %>
+  <% unless request.confirmed %>
+    <ul>
+      <li><%= request.date.strftime("%b %d, %Y") %> at <%= request.time.strftime "%l%P" %> by <%= link_to "#{request.user.first_name} #{request.user.last_name}", request.user %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<% @requests.each do |request| %>
+  <% if request.confirmed %>
+    <ul>
+      <li><%= request.date.strftime("%b %d, %Y") %> at <%= request.time.strftime "%l%P" %> by <%= link_to "#{request.user.first_name} #{request.user.last_name}", request.user %></li>
+    </ul>
+  <% end %>
+<% end %>
+<h4>Confirmed</h4>

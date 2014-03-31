@@ -1,6 +1,14 @@
 <h1>Interest: <%= @interest.name %></h1>
 
 <h4>Users with this Interest:</h4>
-<p>Coming soon!</p>
+<% if @interest.users == [] %>
+  <p>Currently no users have chosen this interest.</p>
+<% end %>
+
+<% @interest.users.each do |user| %>
+  <ul>
+    <li><%= link_to "#{user.first_name} #{user.last_name}", user %></li>
+  </ul>
+<% end %>
 
 <%= link_to 'edit', edit_interest_path(@interest) %> <%= link_to 'delete', @interest, method: 'delete', data: { confirm: 'Are you sure? '} %>

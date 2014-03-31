@@ -3,10 +3,10 @@
   <table>
   <tr>
     <td>
-      <a href="users/<%= user.id %>"><img class="profile" src="<%= user.profile_pic %>"></a>
+      <div class="circle"><a href="users/<%= user.id %>"><img class="profile" src="<%= user.profile_pic %>"></a></div>
     </td>
     <td>
-      <%= link_to "#{user.first_name} #{user.last_name}", user %> - <%= user.email %> (<%= user.age %>)
+      <%= link_to "#{user.first_name} #{user.last_name}", user %> - <%= user.email %> (<%= user.age %> years)
     </td>
   </tr>
   </table>

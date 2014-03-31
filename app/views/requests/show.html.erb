@@ -1,0 +1,17 @@
+<h1>Meeting Request for <%= @request.date.strftime("%b %d, %Y") %> at <%= @request.time.strftime "%l%P" %></h1>
+<ul>
+  <li>Request made by: <%= @request.user.first_name %> <%= @request.user.last_name %> <%= @request.ago %> </li>
+  <li>Status: <%= @request.confirmed ? 'Confirmed' : 'Pending' %></li>
+</ul>
+
+<% unless @request.confirmed %>
+  <%= link_to 'delete request', request_path, method: 'delete' %>
+<% end %>
+
+<% if @request.confirmed %>
+  <h4>Meetup Participants:</h4>
+  <ul>
+    <li></li>
+  </ul>
+<% end %>
+<%= link_to 'Back', :back %>

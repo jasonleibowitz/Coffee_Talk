@@ -7,10 +7,19 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
-      @user = User.find(current_user.id)
+    if params[:id]
+      if current_user
+        require_authentication
+        @user = User.find(params[:id])
+      else
+        redirect_to '/login'
+      end
     else
-      redirect_to '/login'
+      if current_user
+        @user = User.find(current_user.id)
+      else
+        redirect_to '/login'
+      end
     end
   end
 

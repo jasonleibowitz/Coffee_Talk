@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
 
   def index
-    @requests = Requests.all
+    @requests = Request.all
   end
 
   def show
@@ -16,16 +16,15 @@ class RequestsController < ApplicationController
   end
 
   def create
-    # @user = current_user
-    # @request = Request.new(request_params)
-    # @request.confirmed = false
-    # if @request.valid?
-    #   @request.save
-    #   redirect_to @user
-    # else
-    #   render 'new'
-    # end
-    render text: params.inspect
+    @user = current_user
+    @request = Request.new(request_params)
+    @request.confirmed = false
+    if @request.valid?
+      @request.save
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -37,8 +36,14 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-
+    @request = Request.find(params[:id])
+    @user = @request.user
+    @request.destroy
+    redirect_to @user
   end
+
+
+
 
   private
   def request_params

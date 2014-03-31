@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330034850) do
+ActiveRecord::Schema.define(version: 20140331180733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(version: 20140330034850) do
   end
 
   create_table "meetings", force: true do |t|
-    t.datetime "datetime"
-    t.integer  "location_id"
+    t.integer "location_id"
+    t.date    "date"
+    t.time    "time"
   end
 
   create_table "meetings_users", id: false, force: true do |t|
@@ -45,11 +46,13 @@ ActiveRecord::Schema.define(version: 20140330034850) do
   end
 
   create_table "requests", force: true do |t|
-    t.integer "user_id"
-    t.boolean "confirmed"
-    t.integer "meeting_id"
-    t.date    "date"
-    t.time    "time"
+    t.integer  "user_id"
+    t.boolean  "confirmed"
+    t.integer  "meeting_id"
+    t.date     "date"
+    t.time     "time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "requests", ["meeting_id"], name: "index_requests_on_meeting_id", using: :btree
