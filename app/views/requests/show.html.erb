@@ -5,14 +5,23 @@
 </ul>
 
 <% unless @request.confirmed %>
+  <h4>Why is the request pending?</h4>
+  <p>Requests stay pending until the CoffeeTalk app syncs all user requests every night at 2am EST. If we find two other users with similar interests to you that have made a request for the same date and time we'll confirm your request. Otherwise your request stays pending until the following day. As CoffeeTalk gets more popular and more people join the wait time for your request to be marked confirmed decreases, so tell your friends about us!</p>
   <%= link_to 'delete request', request_path, method: 'delete' %>
 <% end %>
 
 <% if @request.confirmed %>
   <h4>Meetup Participants:</h4>
-  <% @meeting %>
+  <% @meeting.users.each do |user| %>
   <ul>
-    <li></li>
+    <li><%= link_to "#{user.first_name} #{user.last_name}, #{user.age}, #{user.zipcode.to_region}", user %></li>
   </ul>
+  <% end %>
+  <h4>Meetup Location:</h4>
+  <p><%= link_to "#{@meeting.location["name"]} - rating #{@meeting.location["rating"]}", view_locations_path+"/?shop_id=#{@meeting.location["id"]}" %></p>
+  <p><%= @meeting.location["contact"]["formattedPhone"] %></p>
+  <p><%= @meeting.location["location"]["address"] %> <%= @meeting.location["location"]["city"] %>, <%= @meeting.location["location"]["state"] %></p>
+  <img src="<%= Foursquare.google_map(@meeting.location["location"]["lat"],@meeting.location["location"]["lng"]) %>" alt="">
 <% end %>
+<br />
 <%= link_to 'Back', :back %>

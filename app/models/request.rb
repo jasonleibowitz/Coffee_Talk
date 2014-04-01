@@ -76,13 +76,25 @@ class Request < ActiveRecord::Base
     # Removes all users with a Jaccard Index of 0, i.e. no similarities
     jaccard.delete_if { |item| item.jaccard_index <= 0 }
 
+    # Removes all users current user previously met with
+    previous_users_met_with = current_user.meetings.map do |previous_user_meetings|
+      previous_user_meetings.users
+    end
+    previous_users_met_with = previous_users_met_with.flatten.uniq
+    jaccard.delete_if { |item| previous_users_met_with.include? item.user }
+
     return jaccard.sort_by { |item| 1 - item.jaccard_index}
+  end
+
+  def location_recommendation(user)
+    coffeeshop_recommendation = Foursquare.top_coffeehouses_name(user, 1)
+    return coffeeshop_recommendation
   end
 
   def schedule_meetups
     # @requests = Request.where(confirmed: false)
     # @requests.each do |request|
-      if self.recommendation.count < 0
+      if self.recommendation.count < 2
         # no meetups available
       else
         # schedule meetup
@@ -93,8 +105,12 @@ class Request < ActiveRecord::Base
         self.update(confirmed: true)
         recommended_user_requests.first.update(confirmed: true)
 
-        # recommended_user_requests[2].update(meeting_id: meetup.id)
-        # recommended_user_requests[2].update(confirmed: true)
+        recommended_user_requests[1].update(meeting_id: meetup.id)
+        recommended_user_requests[1].update(confirmed: true)
+
+        coffeeshop_recommendation = self.location_recommendation(self.user)
+
+        meetup.update(location: coffeeshop_recommendation.first)
       end
   end
 

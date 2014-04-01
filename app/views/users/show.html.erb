@@ -9,19 +9,13 @@
     <li><%= interest.name %></li>
   </ul>
 <% end %>
-<h4>Current Meetup Requests:</h4>
 
-<% if @user.requests == [] %>
-  <ul>
-    <li>No pending meetup requests. <%= link_to 'Would you like to request one?', new_request_path %></li>
-  </ul>
-<% end %>
-<% @user.requests.each do |request| %>
-  <ul>
-    <li><%= request.date.strftime("%b %d, %Y") %> at <%= request.time.strftime "%l%P" %> - <%= link_to request.confirmed == true ? "Confirmed" : "Pending" , request %> </li>
-  </ul>
+<h4>About Me:</h4>
+<p><%= @user.about %></p>
+
+<% if @user.id == current_user.id %>
+  <%= link_to 'edit account', edit_user_path(@user) %>
+  <%= link_to 'update interests', select_interests_path %>
+  <%= link_to 'request meetup', new_request_path %>
 <% end %>
 
-<%= link_to 'edit account', edit_user_path(@user) %>
-<%= link_to 'update interests', select_interests_path %>
-<%= link_to 'request meetup', new_request_path %>

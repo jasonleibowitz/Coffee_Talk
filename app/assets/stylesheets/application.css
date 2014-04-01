@@ -11,6 +11,25 @@
  *= require_self
  *= require_tree .
  */
+/*body {
+  line-height: 1.4;
+  font-family: Georgia, serif;
+}*/
+/*body.homepage {
+  background: url(http://i.imgur.com/1EjXFBv.jpg) no-repeat;
+  background-size: cover;
+}*/
+/*div.header {
+  background: white;
+}*/
+/*nav .top-menu {
+  float: right;
+}*/
+/*h1 {
+  font-size: 36px;
+  font-weight: 900;
+}*/
+
 .field_with_errors input {
   border: 2px solid red;
 }
@@ -32,3 +51,7 @@ img.logo {
   overflow: hidden;
   margin-right: 10px;
 }
+img.location-image {
+  width: 400px;
+}
+

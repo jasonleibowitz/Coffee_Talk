@@ -34,6 +34,11 @@
     <%= f.date_field :dob %>
   </div>
 
+  <div>
+    <%= f.label :about %>
+    <%= f.text_area :about %>
+  </div>
+
   <% if params[:action] != "edit" %>
   <div>
     <%= f.label :password %>

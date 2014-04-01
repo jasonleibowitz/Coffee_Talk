@@ -5,25 +5,32 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="skeleton.css">
+  <link rel="stylesheet" href="application.css">
 </head>
 <body>
-  <img class="logo" src="http://i.imgur.com/XWnbmbg.png" width="200">
-  <div class="top-menu"><% if current_user  %>
-    Hello, <%= current_user.first_name %>! <br>
-    <%= link_to "Logout", logout_path %>
-    <%= link_to "edit", edit_user_path(current_user.id), controller: 'users' %>
-   <% if current_user.admin %>
-    <%= link_to "Users", users_path %> <%= link_to "Interests", interests_path %>
-    <%= link_to "Requests", requests_path %>
-   <% end %>
-  <% else %>
-    <%= link_to "Login", login_path %> <%= link_to "Sign Up", new_user_path, controller: 'users' %><br>
-  <% end %>
-</div>
+  <div class="container">
+    <div class="header sixteen columns">
+      <a href="<%= root_path %>"><img class="logo" src="http://i.imgur.com/XWnbmbg.png" width="200"></a>
+      <nav class="thirteen columns">
+        <div class="top-menu"><% if current_user  %>
+          Hello, <%= current_user.first_name %>! <br>
+          <%= link_to "Logout", logout_path %>
+          <%= link_to "edit", edit_user_path(current_user.id), controller: 'users' %>
+          <% if current_user.admin %>
+            <%= link_to "Users", users_path %> <%= link_to "Interests", interests_path %>
+            <%= link_to "Requests", requests_path %>
+            <%= link_to "Meetups", meetings_path %>
+          <% end %>
+          <% else %>
+            <%= link_to "Login", login_path %> <%= link_to "Sign Up", new_user_path, controller: 'users' %><br>
+          <% end %>
+        </div>
+      </nav>
+    </div>
 
-<hr>
+  <%= yield %>
 
-<%= yield %>
-
+  </div>
 </body>
 </html>

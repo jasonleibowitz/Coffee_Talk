@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to @user
-      # render text: params.inspect
+      redirect_to profile_users_path
     else
       render 'new'
     end

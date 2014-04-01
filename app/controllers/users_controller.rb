@@ -9,14 +9,8 @@ class UsersController < ApplicationController
   def show
     if params[:id]
       if current_user
-        require_authentication
         @user = User.find(params[:id])
-      else
-        redirect_to '/login'
-      end
-    else
-      if current_user
-        @user = User.find(current_user.id)
+        @fsearch = Foursquare.top_coffeehouses_name(@user, 5)
       else
         redirect_to '/login'
       end
@@ -62,13 +56,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    if current_user
+      @user = User.find(current_user.id)
+      @fsearch = Foursquare.top_coffeehouses_name(@user, 5)
+    else
+      redirect_to '/login'
+    end
+  end
+
   private
   def user_params
-    return params.require(:user).permit(:first_name, :last_name, :email, :dob, :zipcode, :password, :password_confirmation, :admin, :profile_pic)
+    return params.require(:user).permit(:first_name, :last_name, :email, :dob, :zipcode, :password, :password_confirmation, :admin, :profile_pic, :about)
   end
 
   def edit_user_params
-    return params.require(:user).permit(:first_name, :last_name, :email, :dob, :zipcode, :admin, :profile_pic)
+    return params.require(:user).permit(:first_name, :last_name, :email, :dob, :zipcode, :admin, :profile_pic, :about)
   end
 
 end

@@ -1,0 +1,11 @@
+<h1>All Meetups</h1>
+<% @meetings.order(created_at: :desc).each do |meeting| %>
+  <ul>
+    <li><%= meeting.date.strftime "%b %d, %Y" %> at <%= meeting.time.strftime "%l%P" %></li>
+    <ul>
+      <% meeting.users.each do |user| %>
+      <li><%= link_to "#{user.first_name} #{user.last_name}", user %></li>
+      <% end %>
+    </ul>
+  </ul>
+<% end %>

@@ -4,6 +4,8 @@ class Meeting < ActiveRecord::Base
   has_many :requests
   has_many :users, through: :requests
 
+  serialize :location
+
 
 
 end

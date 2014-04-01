@@ -1,13 +1,21 @@
 CoffeetalkApp::Application.routes.draw do
 
-  resources :users
+  resources :users do
+    collection do
+      get 'profile'
+    end
+  end
   resources :interests do
     collection do
       get 'select'
       post 'save_prefs'
     end
   end
-  resources :locations
+  resources :locations do
+    collection do
+      get 'view'
+    end
+  end
   resources :meetings
   resources :requests
 
@@ -15,5 +23,5 @@ CoffeetalkApp::Application.routes.draw do
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  root to: 'users#show'
+  root to: 'users#profile'
 end

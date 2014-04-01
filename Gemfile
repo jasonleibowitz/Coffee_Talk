@@ -41,14 +41,16 @@ gem 'pry-rails', :group => :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# RSpec Testing in Rails
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
-end
 
 gem 'area'
 
 gem 'time_diff'
+
+gem 'whenever', :require => false
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'

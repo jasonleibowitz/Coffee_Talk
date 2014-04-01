@@ -6,15 +6,21 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  validates :first_name, :last_name, :email, :dob, :zipcode, :profile_pic, presence: true
+  validates :first_name, :last_name, :email, :dob, :zipcode, :profile_pic, :about, presence: true
   validates :password, presence: true, on: :create
   validates :password, confirmation: true, on: :create
-  validates :zipcode, length: { is: 5 }, numericality: true
+  validates :zipcode, length: { is: 5 }
   validates :email, uniqueness: true
 
   def age
     now = Time.now.utc.to_date
     now.year - self.dob.year - (self.dob.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
+
+  def latlon
+    lat = self.zipcode.to_lat.to_f
+    lon = self.zipcode.to_lon.to_f
+    return lat.to_f, lon.to_f
   end
 
   def update_interests(array)
