@@ -60,6 +60,8 @@ class UsersController < ApplicationController
     if current_user
       @user = User.find(current_user.id)
       @fsearch = Foursquare.top_coffeehouses_name(@user, 5)
+      hello_array = ["Hello", "Shalom", "Hej", "Saluton", "Bonjour", "Guten Tag", "Aloha", "Ciao", "Konnichiwa", "Olá", "Hola", "nǐ hǎo", "Namastē", "Privet"]
+      @hello = hello_array[rand(13)]
     else
       redirect_to '/login'
     end

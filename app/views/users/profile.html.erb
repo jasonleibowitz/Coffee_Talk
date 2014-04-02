@@ -1,33 +1,43 @@
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
-<div class="circle"><img class="profile" src="<%= @user.profile_pic %>" alt=""></div>
-<p>Email: <%= @user.email %></p>
-<p>Zipcode: <%= @user.zipcode %></p>
-<p>Age: <%= @user.age %></p>
-<h4>Current Interests:</h4>
-<% @user.interests.each do |interest| %>
-  <ul>
-    <li><%= interest.name %></li>
-  </ul>
-<% end %>
-<h4>Current Meetup Requests:</h4>
+<body class="homepage">
+<div class="wrapper">
+  <div class="profile-wrap twelve columns">
+    <h2><%= @hello %> <%= @user.first_name %></h2>
+    <div class="profile-img-wrap four columns"><div class="circle"><img class="profile" src="<%= @user.profile_pic %>" alt=""></div></div>
+  <div class="wrap-info ten columns">
+    <div class="profile-info">
+      <p>Email: <%= @user.email %></p>
+      <p>Zipcode: <%= @user.zipcode %></p>
+      <p>Age: <%= @user.age %></p>
+      <h4>Current Interests:</h4>
+      <% @user.interests.each do |interest| %>
+        <ul>
+          <li><%= interest.name %></li>
+        </ul>
+      <% end %>
+      <h4>Current Meetup Requests:</h4>
 
-<% if @user.requests == [] %>
-  <ul>
-    <li>No pending meetup requests. <%= link_to 'Would you like to request one?', new_request_path %></li>
-  </ul>
-<% end %>
-<% @user.requests.each do |request| %>
-  <ul>
-    <li><%= request.date.strftime("%b %d, %Y") %> at <%= request.time.strftime "%l%P" %> - <%= link_to request.confirmed == true ? "Confirmed" : "Pending" , request %> </li>
-  </ul>
-<% end %>
+      <% if @user.requests == [] %>
+        <ul>
+          <li>No pending meetup requests. <%= link_to 'Would you like to request one?', new_request_path %></li>
+        </ul>
+      <% end %>
+      <% @user.requests.each do |request| %>
+        <ul>
+          <li><%= request.date.strftime("%b %d, %Y") %> at <%= request.time.strftime "%l%P" %> - <%= link_to request.confirmed == true ? "Confirmed" : "Pending" , request %> </li>
+        </ul>
+      <% end %>
 
-<h4>Best Coffeeshops in Your Neighborhood</h4>
-  <ul><% @fsearch.each do |shop| %>
-  <li><%= link_to "#{shop["name"]} - rating #{shop["rating"]}", view_locations_path+"/?shop_id=#{shop["id"]}" %></li>
-  <% end %></ul>
-
-<%= link_to 'edit account', edit_user_path(@user) %>
-<%= link_to 'update interests', select_interests_path %>
-<%= link_to 'request meetup', new_request_path %>
-
+      <h4>Best Coffeeshops in Your Neighborhood</h4>
+        <ul><% @fsearch.each do |shop| %>
+        <li><%= link_to "#{shop["name"]} - rating #{shop["rating"]}", view_locations_path+"/?shop_id=#{shop["id"]}" %></li>
+        <% end %></ul>
+    </div>
+    <div class="bot-menu">
+      <%= link_to 'edit account', edit_user_path(@user), class: "bot-link" %>
+      <%= link_to 'update interests', select_interests_path, class: "bot-link" %>
+      <%= link_to 'request meetup', new_request_path, class: "bot-link" %>
+    </div>
+  </div>
+  </div>
+</div>
+</body>

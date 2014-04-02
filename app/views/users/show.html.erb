@@ -1,21 +1,24 @@
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
-<div class="circle"><img class="profile" src="<%= @user.profile_pic %>" alt=""></div>
-<p>Email: <%= @user.email %></p>
-<p>Zipcode: <%= @user.zipcode %></p>
-<p>Age: <%= @user.age %></p>
-<h4>Current Interests:</h4>
-<% @user.interests.each do |interest| %>
-  <ul>
-    <li><%= interest.name %></li>
-  </ul>
-<% end %>
+<div class="wrapper">
+  <div class="profile-wrap">
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <div class="circle"><img class="profile" src="<%= @user.profile_pic %>" alt=""></div>
+    <p>Email: <%= @user.email %></p>
+    <p>Zipcode: <%= @user.zipcode %></p>
+    <p>Age: <%= @user.age %></p>
+    <h4>Current Interests:</h4>
+    <% @user.interests.each do |interest| %>
+      <ul>
+        <li><%= interest.name %></li>
+      </ul>
+    <% end %>
 
-<h4>About Me:</h4>
-<p><%= @user.about %></p>
+    <h4>About Me:</h4>
+    <p><%= @user.about %></p>
 
-<% if @user.id == current_user.id %>
-  <%= link_to 'edit account', edit_user_path(@user) %>
-  <%= link_to 'update interests', select_interests_path %>
-  <%= link_to 'request meetup', new_request_path %>
-<% end %>
-
+    <% if @user.id == current_user.id %>
+      <%= link_to 'edit account', edit_user_path(@user) %>
+      <%= link_to 'update interests', select_interests_path %>
+      <%= link_to 'request meetup', new_request_path %>
+    <% end %>
+  </div>
+</div>
