@@ -52,6 +52,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
 end
 
+gem 'rails_12factor', group: :production
+
+ruby "2.1.0"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
