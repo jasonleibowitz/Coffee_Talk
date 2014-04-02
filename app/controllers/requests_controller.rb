@@ -24,7 +24,7 @@ class RequestsController < ApplicationController
     @request.confirmed = false
     if @request.valid?
       @request.save
-      redirect_to @user
+      redirect_to root_path
     else
       render 'new'
     end
