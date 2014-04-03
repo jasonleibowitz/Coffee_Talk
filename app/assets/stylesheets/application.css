@@ -161,6 +161,11 @@ div.interest-index-wrap {
 div.interest-index-wrap a {
   color: white;
 }
+div.location-img-wrap img {
+  display: block;
+  margin: 0 auto;
+  border: 3px solid white;
+}
 img.profile {
   display: block;
   width: 150px;

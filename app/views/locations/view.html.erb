@@ -1,5 +1,6 @@
+<div class="interest-index-wrap ten columns">
 <h1><%= @venue["name"] %></h1>
-<img class="location-image" src="<%= @photo_url %>">
+<div class="location-img-wrap"><img class="location-image" src="<%= @photo_url %>"></div>
 <p>Address: <%= @venue["location"]["address"] %> <%= @venue["location"]["city"] %>, <%= @venue["location"]["state"] %></p>
 <p>Phone: <%= @venue["contact"]["formattedPhone"] %></p>
 <p>Rating: <%= @venue["rating"] %></p>
@@ -12,4 +13,5 @@
   </ul>
 </p>
 <p><a href="<%= @venue["canonicalUrl"] %>" target="_blank">More Info</a></p>
-<img src="<%= @google_map %>">
+<div class="location-img-wrap"><img src="<%= @google_map %>"></div>
+</div>
