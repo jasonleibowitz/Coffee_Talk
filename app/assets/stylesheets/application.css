@@ -20,6 +20,12 @@ body.homepage {
 div.header {
 
 }
+nav {
+
+}
+div.logo-img {
+
+}
 nav .top-menu {
   display: inline-block;
   float: right;
@@ -51,6 +57,13 @@ nav .nav-link-login {
   font-weight: bold;
   vertical-align: middle;
   padding-right: 10px;
+}
+nav a {
+  text-decoration: none;
+  color: black;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 div.wrapper-new {
   display: block;
@@ -91,6 +104,9 @@ div.signup {
   text-align: left;
   margin-bottom: 50px;
 }
+div.signup a {
+  color: white;
+}
 div.wrapper {
   display: block;
   margin: 0 auto;
@@ -125,6 +141,25 @@ div.profile-img-wrap {
 div.wrap-info {
   width: 580px;
   margin-top: 200px;
+}
+div.checkbox-wrap {
+  width: 580px;
+  margin: 0 auto;
+  background: rgba(16,9,0,0.7);
+  border-radius: 20px;
+  padding: 40px;
+  color: white;
+}
+div.interest-index-wrap {
+  width: 580px;
+  margin: 0 auto;
+  background: rgba(16,9,0,0.7);
+  border-radius: 20px;
+  padding: 40px;
+  color: white;
+}
+div.interest-index-wrap a {
+  color: white;
 }
 img.profile {
   display: block;
@@ -161,9 +196,7 @@ img.location-image {
   input[type="email"],
   input[type="number"],
   input[type="date"],
-  input[type="checkbox"]
-  textarea,
-  select {
+  textarea {
     border: 1px solid #ccc;
     padding: 6px 4px;
     outline: none;
@@ -181,6 +214,31 @@ img.location-image {
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+  select  {
+    border: 1px solid #ccc;
+    padding: 6px 4px;
+    outline: none;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #777;
+    margin: 0;
+    width: 210px;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    background: #fff;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  textarea {
+    display: block;
+    margin: 0 auto;
+    height: 100px;
+    width: 210px;
   }
   select {
     padding: 0; }
@@ -205,11 +263,18 @@ img.location-image {
     font-size: 13px;
     text-align: center;
   }
+  label.checkbox {
+    display: inline;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+  }
   select {
     width: 220px; }
-  input[type="checkbox"] {
-    display: block;
-    margin: 0 auto;
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: inline;
+    margin-bottom: 8px;
   }
   label span,
   legend span {

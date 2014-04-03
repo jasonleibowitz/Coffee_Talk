@@ -1,7 +1,10 @@
 <div class="wrapper">
-  <div class="profile-wrap">
+  <div class="profile-wrap twelve columns">
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    <div class="circle"><img class="profile" src="<%= @user.profile_pic %>" alt=""></div>
+    <div class="profile-img-wrap four columns"><div class="circle"><img class="profile" src="<%= @user.profile_pic %>" alt=""></div></div>
+    <div class="wrap-info ten columns">
+    <h4>About Me:</h4>
+    <p><%= @user.about %></p>
     <p>Email: <%= @user.email %></p>
     <p>Zipcode: <%= @user.zipcode %></p>
     <p>Age: <%= @user.age %></p>
@@ -12,13 +15,12 @@
       </ul>
     <% end %>
 
-    <h4>About Me:</h4>
-    <p><%= @user.about %></p>
 
     <% if @user.id == current_user.id %>
       <%= link_to 'edit account', edit_user_path(@user) %>
       <%= link_to 'update interests', select_interests_path %>
       <%= link_to 'request meetup', new_request_path %>
     <% end %>
+  </div>
   </div>
 </div>

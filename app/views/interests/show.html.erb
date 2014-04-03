@@ -1,3 +1,5 @@
+<div class="interest-index-wrap ten columns">
+
 <h1>Interest: <%= @interest.name %></h1>
 
 <h4>Users with this Interest:</h4>
@@ -12,3 +14,4 @@
 <% end %>
 
 <%= link_to 'edit', edit_interest_path(@interest) %> <%= link_to 'delete', @interest, method: 'delete', data: { confirm: 'Are you sure? '} %>
+</div>

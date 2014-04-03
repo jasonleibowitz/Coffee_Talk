@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="skeleton.css">
   <link rel="stylesheet" href="application.css">
 </head>
-<body>
+<body class="homepage sixteen columns">
   <div class="container">
     <div class="header sixteen columns">
-      <a href="<%= root_path %>"><img class="logo" src="http://i.imgur.com/XWnbmbg.png" width="200"></a>
+      <div class="logo-img fourteen columns"><a href="<%= root_path %>"><img class="logo" src="http://i.imgur.com/XWnbmbg.png" width="200"></a></div>
       <nav class="fourteen columns">
         <div class="top-menu-login">
           <% if current_user  %>

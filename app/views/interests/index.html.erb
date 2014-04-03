@@ -1,5 +1,6 @@
+<div class="interest-index-wrap ten columns">
 <h1>All Interests</h1>
-<%= link_to 'Add new Interest', new_interest_path %>
+<h4><%= link_to 'Add new Interest', new_interest_path %></h4>
 <% @interests.each do |interest| %>
 
   <ul>
@@ -7,3 +8,4 @@
   </ul>
 
 <% end %>
+</div>

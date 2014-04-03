@@ -1,3 +1,4 @@
+
 <%= form_for @request do |f| %>
 
   <% if @request.errors.any? %>
@@ -18,19 +19,17 @@
   </div>
 
   <div>
-    <%= f.label :date, "Today, #{Date.current.strftime("%b %d")}" %>
-    <%= f.radio_button :date, Date.current %>
-    <%= f.label :date, "Tomorrow, #{@tomorrow.strftime("%b %d")}" %>
-    <%= f.radio_button :date, Date.current+1 %>
-    <%= f.label :date, @day_after_tomorrow.strftime("%A, %b %d") %>
-    <%= f.radio_button :date, Date.current+2 %>
-    <%= f.label :date, @day_after_day_after_tomorrow.strftime("%A, %b %d") %>
-    <%= f.radio_button :date, Date.current+2 %>
+    <div class="select-box"><%= f.label :date, "Tomorrow, #{@tomorrow.strftime("%b %d")}", class: "checkbox" %>
+    <%= f.radio_button :date, Date.current+1 %></div>
+    <div class="select-box"><%= f.label :date, @day_after_tomorrow.strftime("%A, %b %d"), class: "checkbox" %>
+    <%= f.radio_button :date, Date.current+2 %></div>
+    <div class="select-box"><%= f.label :date, @day_after_day_after_tomorrow.strftime("%A, %b %d"), class: "checkbox" %>
+    <%= f.radio_button :date, Date.current+2 %></div>
   </div>
 
   <div>
-    <%= f.label :time, 'Time:' %>
-    <%= f.select :time, [['7am', 7], ['8am', 8], ['9am', 9], ['10am', 10], ['11am', 11], ['12pm', 12], ['1pm', 13], ['2pm', 14], ['3pm', 15], ['4pm', 16], ['5pm', 17], ['6pm', 18], ['7pm', 19], ['8pm', 20], ['9pm', 21], ['10pm', 22]] %>
+    <%= f.label :time, 'Time:', class: "checkbox" %>
+    <%= f.select :time, [['7am', 7], ['8am', 8], ['9am', 9], ['10am', 10], ['11am', 11], ['12pm', 12], ['1pm', 13], ['2pm', 14], ['3pm', 15], ['4pm', 16], ['5pm', 17], ['6pm', 18], ['7pm', 19], ['8pm', 20], ['9pm', 21], ['10pm', 22]], class: "request" %>
   </div>
 
   <div>
@@ -38,3 +37,4 @@
   </div>
 
 <% end %>
+</div>

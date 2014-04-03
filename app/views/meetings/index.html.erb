@@ -1,3 +1,4 @@
+<div class="interest-index-wrap ten columns">
 <h1>All Meetups</h1>
 <% @meetings.order(created_at: :desc).each do |meeting| %>
   <ul>
@@ -9,3 +10,4 @@
     </ul>
   </ul>
 <% end %>
+</div>
