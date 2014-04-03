@@ -9,9 +9,9 @@ CoffeetalkApp::Application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'localhost:3000',
-    user_name:            '<username>',
-    password:             '<password>',
+    domain:               'http://cherry-cake-2455.herokuapp.com/',
+    user_name:            ENV['COFFEETALK_USERNAME'],
+    password:             ENV['COFFEETALK_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true  }
 end
