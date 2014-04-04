@@ -40,11 +40,11 @@ After the meeting users "review" who they met: did they show up, were they obnox
 ### Technologies Used
 
 * APIs
-  * Foursquare API(https://developer.foursquare.com/)
+  * [Foursquare API](https://developer.foursquare.com/)
   * [Google Static Maps API](https://developers.google.com/maps/documentation/staticmaps/?csw=1)
 * Gems
   * [Time Diff Gem](https://github.com/abhidsm/time_diff)
   * [Area Gem](https://github.com/jgv/area)
 * Core Technologies
-  * Ruby on Rails(http://rubyonrails.org/)
-  * PostgreSQL(http://www.postgresql.org/)
+  * [Ruby on Rails](http://rubyonrails.org/)
+  * [PostgreSQL](http://www.postgresql.org/)
