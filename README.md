@@ -2,7 +2,7 @@
 ### Jason Leibowitz - GA WDI Feb '14
 ---
 
-### Project Overview
+### Project Description
 
 For centuries coffeehouses have been a central meeting house for intellectuals and creatives to gather and discuss the politics of the day, controversial topics and conceive revolutionary ideas and projects. In 1864 Edmund Halley, Christopher Wren, and Robert Hooke met at their usual London coffee house to deliberate over the intracasies of celestial motion. From that meeting Isaac Newton's Principia Mathematica, the basis of modern science, was born. French Englightenment figures Voltaire, Rousseau, and Diderot frequented Parisian coffee houses and arguably conceived of the Encyclopedie there.
 
