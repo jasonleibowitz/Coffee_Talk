@@ -135,10 +135,14 @@ div.profile-wrap {
   border: 2px solid red;
 }
 div.profile-img-wrap {
+  display: block;
   width: 200px;
   margin :0 auto;
 }
 div.wrap-info {
+  width: 580px;
+}
+div.wrap-info-admin {
   width: 580px;
   margin-top: 200px;
 }
