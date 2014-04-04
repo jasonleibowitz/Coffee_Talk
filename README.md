@@ -20,7 +20,7 @@ After the meeting users "review" who they met: did they show up, were they obnox
 
 ### Links
 
-* [cherry-cake-2455.herokuapp.com](cherry-cake-2455.herokuapp.com)
+* [cherry-cake-2455.herokuapp.com](http://cherry-cake-2455.herokuapp.com)
 * [https://github.com/jasonleibowitz/coffeetalk_app](https://github.com/jasonleibowitz/coffeetalk_app)
 
 ---
@@ -40,11 +40,11 @@ After the meeting users "review" who they met: did they show up, were they obnox
 ### Technologies Used
 
 * APIs
-  * Foursquare API
+  * Foursquare API(https://developer.foursquare.com/)
   * [Google Static Maps API](https://developers.google.com/maps/documentation/staticmaps/?csw=1)
 * Gems
   * [Time Diff Gem](https://github.com/abhidsm/time_diff)
   * [Area Gem](https://github.com/jgv/area)
 * Core Technologies
-  * Ruby on Rails
-  * PostgreSQL
+  * Ruby on Rails(http://rubyonrails.org/)
+  * PostgreSQL(http://www.postgresql.org/)
