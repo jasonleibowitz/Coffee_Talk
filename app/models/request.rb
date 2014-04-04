@@ -93,7 +93,7 @@ class Request < ActiveRecord::Base
 
   def schedule_meetups
     # @requests = Request.where(confirmed: false)
-    # @requests.each do |request|
+  # @requests.each do |request|
       if self.recommendation.count < 2
         # no meetups available
       else
