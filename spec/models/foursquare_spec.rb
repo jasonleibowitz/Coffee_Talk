@@ -26,5 +26,11 @@ describe Foursquare do
     end
   end
 
+  describe ".foursquare_search" do
+    it "returns information about coffeeshops near a user" do
+      expect(Foursquare.foursquare_search(@jason)).to have_at_least(4).items
+    end
+  end
+
 
 end
