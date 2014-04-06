@@ -1,11 +1,11 @@
 class LocationsController < ApplicationController
 
   def view
-    location = params[:shop_id]
-    @venue = Foursquare.coffeeshop_venue(location)
-    @photo_url = "#{@venue["photos"]["groups"].first["items"].first["prefix"]}original#{@venue["photos"]["groups"].first["items"].first["suffix"]}"
-    @tips = @venue["tips"]["groups"].first["items"]
-    @google_map = Foursquare.google_map(@venue["location"]["lat"], @venue["location"]["lng"])
+    info = Location.shop_info(params[:shop_id])
+    @venue = info[0]
+    @photo_url = info[1]
+    @tips = info[2]
+    @google_map = info[3]
   end
 
 end
