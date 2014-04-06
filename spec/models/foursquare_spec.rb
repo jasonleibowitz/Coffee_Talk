@@ -18,5 +18,13 @@ describe Foursquare do
     end
   end
 
+  describe ".google_map" do
+    it "returns a google map based on a coffeeshop's lat and lon" do
+      lat = Foursquare.coffeeshop_venue('4de26e06814df7ebdc14af8b')["location"]["lat"]
+      lon = Foursquare.coffeeshop_venue('4de26e06814df7ebdc14af8b')["location"]["lng"]
+      expect(Foursquare.google_map(lat, lon)).to eql("http://maps.googleapis.com/maps/api/staticmap?center=40.69834998317835,-73.99289409776352&zoom=17&size=400x400&markers=color:red%7C40.69834998317835,-73.99289409776352&sensor=false")
+    end
+  end
+
 
 end
