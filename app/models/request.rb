@@ -22,7 +22,7 @@ class Request < ActiveRecord::Base
     end
     if diff[:second] == 1
       @ago << "#{diff[:second]} second ago"
-    elsif diff[:second] > 1
+    elsif diff[:second] > 1 || diff[:second] == 0
       @ago << "#{diff[:second]} seconds ago"
     end
     return @ago

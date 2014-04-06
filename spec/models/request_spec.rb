@@ -48,4 +48,11 @@ describe Request do
     end
   end
 
+  describe "#ago" do
+    it "returns the difference between the request start date and now in a string" do
+      expect(@request.ago).to eql "0 seconds ago"
+    end
+
+  end
+
 end
