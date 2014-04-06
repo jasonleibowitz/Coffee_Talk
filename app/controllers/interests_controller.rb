@@ -45,17 +45,20 @@ class InterestsController < ApplicationController
   end
 
   def save_prefs
-    array = []
-    updated_prefs = params
-    updated_prefs.each do |k,v|
-      Interest.all.each do |interest|
-        if k == interest.name
-          array << k
-        end
-      end
-    end
-      current_user.update_interests(array)
-      redirect_to user_path(current_user)
+    current_user.update_prefs(params)
+    redirect_to user_path(current_user)
+
+    # array = []
+    # updated_prefs = params
+    # updated_prefs.each do |k,v|
+    #   Interest.all.each do |interest|
+    #     if k == interest.name
+    #       array << k
+    #     end
+    #   end
+    # end
+    #         binding.pry
+    #   current_user.update_interests(array)
   end
 
   private

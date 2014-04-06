@@ -23,7 +23,17 @@ class User < ActiveRecord::Base
     return lat.to_f, lon.to_f
   end
 
-  def update_interests(array)
+  def update_interests(params)
+
+    array = []
+    updated_prefs = params
+    updated_prefs.each do |k,v|
+      Interest.all.each do |interest|
+        if k == interest.name
+          array << k
+        end
+      end
+    end
     # if a selected interest is not in the user's interest list, add it
     array.each do |selected_interest|
       if !self.interests.include?(Interest.find_by(name: selected_interest))
@@ -37,6 +47,19 @@ class User < ActiveRecord::Base
         self.interests.destroy(db_interest)
       end
     end
+  end
+
+  def save_prefs(pref_array)
+    array = []
+    updated_prefs = pref_array
+    updated_prefs.each do |k,v|
+      Interest.all.each do |interest|
+        if k == interest.name
+          array << k
+        end
+      end
+    end
+    self.update_interests(array)
   end
 
   def haversine(lat1, long1, lat2, long2)
@@ -57,6 +80,7 @@ class User < ActiveRecord::Base
 
     return d
   end
+
 
   private
   def power(num, pow)

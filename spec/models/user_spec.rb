@@ -2,13 +2,17 @@ require_relative '../spec_helper.rb'
 
 describe User do
   before :each do
-    @jason = User.new(first_name: "Jason", last_name: "Leibowitz", email: "leibo@gmail.com", dob: "1987-02-26", zipcode: "11201", admin: true, profile_pic: 'http://i.imgur.com/5z5NbX5.jpg', password: "hijesse", password_confirmation: "hijesse")
+    @jason = User.new(first_name: "Jason", last_name: "Leibowitz", email: "leibo@gmail.com", dob: "1987-02-26", zipcode: "11201", admin: true, profile_pic: 'http://i.imgur.com/5z5NbX5.jpg', password: "hijesse", password_confirmation: "hijesse", about: "meh")
     @jason.save
 
-    @steph = User.new(first_name: "Stephanie", last_name: "Eagle", email: "stepheagle@gmail.com", dob: "1990-09-01", zipcode: "10009", admin: false, profile_pic: "https://scontent-a-lga.xx.fbcdn.net/hphotos-ash2/t1.0-9/400523_4892829593917_1295297482_n.jpg", password: "password", password_confirmation: "password")
+    @steph = User.new(first_name: "Stephanie", last_name: "Eagle", email: "stepheagle@gmail.com", dob: "1990-09-01", zipcode: "10009", admin: false, profile_pic: "https://scontent-a-lga.xx.fbcdn.net/hphotos-ash2/t1.0-9/400523_4892829593917_1295297482_n.jpg", password: "password", password_confirmation: "password", about: "hi")
     @steph.save
 
-    @interest_array = ["Premier League Soccer", "American Politics", "Israel"]
+    interest_array = ["Premier League Soccer", "American Politics", "Israel"]
+    interest_array.each do |interest|
+      Interest.create(name: interest, description: "tbd")
+    end
+
   end
 
   describe "#age" do
@@ -29,6 +33,12 @@ describe User do
     end
   end
 
-
+  describe "#update_interests" do
+    it "updates the current users interests based on params" do
+      params = {"utf8"=>"✓", "authenticity_token"=>"ARz5l32SBtc8RJqtzAKLSS9B64Ct5t+JcYja/aJhIjs=", "Premier League Soccer"=>"1", "American Politics"=>"1", "StartUp"=>"1", "Israel"=>"1", "commit"=>"Save changes"}
+      @jason.update_interests(params)
+      expect(@jason.interests).to have(3).items
+    end
+  end
 
 end
