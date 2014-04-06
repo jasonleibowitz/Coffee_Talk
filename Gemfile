@@ -54,6 +54,10 @@ end
 
 gem 'rails_12factor', group: :production
 
+group :test do
+  gem "nyan-cat-formatter"
+end
+
 ruby "2.1.0"
 
 # Use unicorn as the app server
