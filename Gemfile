@@ -60,6 +60,8 @@ end
 
 gem "figaro"
 
+gem 'simplecov', :require => false, :group => :test
+
 ruby "2.1.0"
 
 # Use unicorn as the app server
