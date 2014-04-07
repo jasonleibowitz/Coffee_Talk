@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Great News <%= @user.first_name %>, Your Meetup Has been Scheduled!</h1>
+  <p>
+    <%= @user.first_name %>, your meetup request for <%= @date.strftime "%b %d %Y" %> at <%= @time.strftime "%l%P" %> has been successfully scheduled. You will be meeting with <%= link_to #{@person1.first_name} #{@person1.last_name}, user_path(@person1) %> and <%= link_to #{@person2.first_name} #{@person2.last_name}, user_path(@person2) %>. <br>
+  </p>
+  <p>
+    Enjoy your meetup!
+  </p>
+  <p>Linda Richman</p>
+</body>
+</html>
