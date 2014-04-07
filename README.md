@@ -14,7 +14,7 @@ Coffee Talk is an innovative new app that allows you to meet new people in your 
 
 ### Links
 
-* [cherry-cake-2455.herokuapp.com](http://cherry-cake-2455.herokuapp.com)
+* [coffeetalk.herokuapp.com](http://coffeetalk.herokuapp.com)
 * [https://github.com/jasonleibowitz/coffeetalk_app](https://github.com/jasonleibowitz/coffeetalk_app)
 
 ---
