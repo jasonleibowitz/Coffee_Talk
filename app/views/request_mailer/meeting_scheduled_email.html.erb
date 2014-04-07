@@ -6,7 +6,7 @@
 <body>
   <h1>Great News <%= @user.first_name %>, Your Meetup Has been Scheduled!</h1>
   <p>
-    <%= @user.first_name %>, your meetup request for <%= @date.strftime "%b %d %Y" %> at <%= @time.strftime "%l%P" %> has been successfully scheduled. You will be meeting with <%= link_to #{@person1.first_name} #{@person1.last_name}, user_path(@person1) %> and <%= link_to #{@person2.first_name} #{@person2.last_name}, user_path(@person2) %>. <br>
+    <%= @user.first_name %>, your meetup request for <%= @date.strftime "%b %d %Y" %> at <%= @time.strftime "%l%P" %> has been successfully scheduled. You will be meeting with <a href="<%= @url %><%= user_path(@person1) %>"><%= "#{@person1.first_name} #{@person1.last_name}" %></a> and <a href="<%= @url %><%= user_path(@person2) %>"><%= "#{@person2.first_name} #{@person2.last_name}" %></a> at <a href="<%= @url %><%= view_locations_path+"/?shop_id=#{@location_id}" %>"><%= @location_name %></a>, <%= @location_address %>. <br>
   </p>
   <p>
     Enjoy your meetup!
