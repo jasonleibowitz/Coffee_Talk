@@ -58,6 +58,8 @@ group :test do
   gem "nyan-cat-formatter"
 end
 
+gem "figaro"
+
 ruby "2.1.0"
 
 # Use unicorn as the app server

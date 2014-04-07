@@ -6,4 +6,5 @@ class UserMailer < ActionMailer::Base
     @url = 'http://localhost:3000/login'
     mail(to: @user.email, subject: 'Welcome to Coffee Talk')
   end
+
 end
