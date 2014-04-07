@@ -101,12 +101,18 @@ class Request < ActiveRecord::Base
         recommended_user_requests = self.recommendation
         meetup = Meeting.create(date: self.date, time: self.time)
         self.update(meeting_id: meetup.id)
+        RequestMailer.meeting_scheduled_email(self).deliver
+
         recommended_user_requests.first.update(meeting_id: meetup.id)
         self.update(confirmed: true)
         recommended_user_requests.first.update(confirmed: true)
+        RequestMailer.meeting_scheduled_email(recommended_user_requests.first).deliver
+
 
         recommended_user_requests[1].update(meeting_id: meetup.id)
         recommended_user_requests[1].update(confirmed: true)
+        RequestMailer.meeting_scheduled_email(recommended_user_requests[1]).deliver
+
 
         coffeeshop_recommendation = self.location_recommendation(self.user)
 
