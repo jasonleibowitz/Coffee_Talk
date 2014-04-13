@@ -15,6 +15,14 @@ describe User do
 
   end
 
+  it { should validate_presence_of :first_name }
+  it { should validate_presence_of :last_name }
+  it { should validate_presence_of :email }
+  it { should validate_presence_of :dob }
+  it { should validate_presence_of :zipcode }
+  it { should validate_presence_of :profile_pic }
+  it { should validate_presence_of :about }
+
   describe "#age" do
     it "gives the age from a birthdate" do
       expect(@jason.age).to eq 27
