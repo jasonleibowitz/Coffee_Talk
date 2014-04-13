@@ -56,6 +56,7 @@ gem 'rails_12factor', group: :production
 
 group :test do
   gem "nyan-cat-formatter"
+  gem 'shoulda-matchers'
 end
 
 gem "figaro"
