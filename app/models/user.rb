@@ -27,6 +27,11 @@ class User < ActiveRecord::Base
 
     array = []
     updated_prefs = params
+
+    # Remove all interests from user
+    self.interests.destroy_all
+
+    # Add all interests from params into an array
     updated_prefs.each do |k,v|
       Interest.all.each do |interest|
         if k == interest.name
@@ -34,18 +39,10 @@ class User < ActiveRecord::Base
         end
       end
     end
-    # if a selected interest is not in the user's interest list, add it
-    array.each do |selected_interest|
-      if !self.interests.include?(Interest.find_by(name: selected_interest))
-        self.interests << Interest.find_by(name: selected_interest)
-      end
-    end
 
-    # if an interest is not in the array, but is in the user.interests.include? then remove it
-    Interest.all.each do |db_interest|
-      if !array.include?(db_interest.name) && self.interests.include?(db_interest)
-        self.interests.destroy(db_interest)
-      end
+    # Update user's interests with all chosen interests
+    array.each do |selected_interest|
+      self.interests << Interest.find_by(name: selected_interest)
     end
   end
 
