@@ -1,6 +1,8 @@
 require_relative '../spec_helper.rb'
 
 describe Location do
+
+
   describe ".shop_info" do
     it "returns an array of information about a coffeeshop" do
       shop_id = '4de26e06814df7ebdc14af8b'

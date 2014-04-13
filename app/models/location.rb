@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  has_many :meetings
+  # has_many :meetings
 
   def self.shop_info(shop_id)
     venue = Foursquare.coffeeshop_venue(shop_id)
