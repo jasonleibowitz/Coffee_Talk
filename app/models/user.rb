@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :email, :dob, :zipcode, :profile_pic, :about, presence: true
   validates :password, presence: true, on: :create
   validates :password, confirmation: true, on: :create
-  validates :zipcode, length: { is: 5 }
+  validates :zipcode, numericality: { only_interger: true }, length: { is: 5 }
   validates :email, uniqueness: true
 
   def age

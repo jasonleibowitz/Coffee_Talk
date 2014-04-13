@@ -23,6 +23,7 @@ describe User do
   it { should validate_presence_of :profile_pic }
   it { should validate_presence_of :about }
   it { should validate_confirmation_of :password }
+  it { should validate_numericality_of(:zipcode).is_equal_to(5) }
 
   describe "#age" do
     it "gives the age from a birthdate" do
