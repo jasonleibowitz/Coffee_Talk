@@ -27,6 +27,9 @@ describe Request do
     @bill.interests << @politics
   end
 
+  it { should belong_to :user }
+  it { should belong_to :meeting }
+
   describe "#location_recommendation(jason)" do
     it "finds the best rated coffeeshop near a user" do
       expect(@request.location_recommendation(@jason).first["name"]).to eq "Vineapple Cafe"
