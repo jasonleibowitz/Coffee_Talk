@@ -135,10 +135,12 @@ div.profile-wrap {
   border: 2px solid red;
 }
 div.profile-img-wrap {
-  display: block;
+  /*display: inline-block;*/
   width: 200px;
-  margin :0 auto;
+  margin: 0 auto;
+  text-align: center;
 }
+
 div.wrap-info {
   width: 580px;
 }
@@ -174,6 +176,7 @@ img.profile {
   display: block;
   width: 150px;
   margin: 0 auto;
+
 }
 img.logo {
   display: block;
@@ -183,7 +186,7 @@ img.logo {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  float: left;
+  /*float: left;*/
   display: inline-block;
   overflow: hidden;
   margin: 0 auto;
