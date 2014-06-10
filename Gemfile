@@ -63,7 +63,11 @@ gem "figaro"
 
 gem 'simplecov', :require => false, :group => :test
 
+gem 'foundation-rails'
+
 ruby "2.1.0"
+
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
