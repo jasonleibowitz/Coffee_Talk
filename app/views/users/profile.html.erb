@@ -1,8 +1,8 @@
 <body class="homepage">
 <div class="wrapper">
-  <div class="profile-wrap ten columns">
+  <div class="profile-wrap twelve columns">
     <h2><%= @hello %> <%= @user.first_name %></h2>
-    <div class="profile-img-wrap ten columns"><div class="circle"><img class="profile" src="<%= @user.profile_pic %>"></div></div>
+    <div class="profile-img-wrap twelve columns"><div class="circle"><img class="profile" src="<%= @user.profile_pic %>"></div></div>
   <div class="<%= current_user.admin? ? "wrap-info-admin" : "wrap-info" %> ten columns">
     <div class="profile-info">
       <p>Email: <%= @user.email %></p>

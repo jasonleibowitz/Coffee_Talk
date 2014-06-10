@@ -146,7 +146,7 @@ div.wrap-info {
 }
 div.wrap-info-admin {
   width: 580px;
-  margin-top: 200px;
+  /*margin-top: 200px;*/
 }
 div.checkbox-wrap {
   width: 580px;
@@ -176,7 +176,6 @@ img.profile {
   display: block;
   width: 150px;
   margin: 0 auto;
-
 }
 img.logo {
   display: block;
